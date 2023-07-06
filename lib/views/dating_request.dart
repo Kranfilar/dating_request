@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_icons/icons8.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:status_alert/status_alert.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -80,7 +81,7 @@ class _VariousButtonsState extends State<VariousButtons> {
   void initState() {
     super.initState();
     _makeNots();
-    _makeYes();
+    // _makeYes();
   }
 
   void _makeNots() {
@@ -104,9 +105,13 @@ class _VariousButtonsState extends State<VariousButtons> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
+          Text(
             '¿ Quer namorar comigo ?',
-            style: TextStyle(color: Colors.white, fontSize: 24),
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 20),
           Wrap(
