@@ -47,27 +47,13 @@ class YesData {
         );
 }
 
-void main() async {
-  runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Container(
-          color: const Color(0xFF15202D),
-          child: const SizedBox.expand(
-            child: VariousButtons(5, 1),
-          ),
-        ),
-      ),
-    ),
-  );
-}
-
 class VariousButtons extends StatefulWidget {
   final int numberOfNoButtons;
   final int numberOfYesButtons;
+  final int numberOfDiscs;
 
-  const VariousButtons(this.numberOfNoButtons, this.numberOfYesButtons);
+  const VariousButtons(
+      this.numberOfNoButtons, this.numberOfYesButtons, this.numberOfDiscs);
 
   @override
   State<VariousButtons> createState() => _VariousButtonsState();
@@ -76,12 +62,12 @@ class VariousButtons extends StatefulWidget {
 class _VariousButtonsState extends State<VariousButtons> {
   final _nots = <NotData>[];
   final _yes = <NotData>[];
-
+  bool clicked = false;
   @override
   void initState() {
     super.initState();
     _makeNots();
-    // _makeYes();
+    _makeYes();
   }
 
   void _makeNots() {
@@ -121,7 +107,7 @@ class _VariousButtonsState extends State<VariousButtons> {
                 AnimatedAlign(
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.easeInOut,
-                  alignment: not.alignment,
+                  alignment: Alignment.center,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: AnimatedContainer(
@@ -151,14 +137,16 @@ class _VariousButtonsState extends State<VariousButtons> {
                 AnimatedAlign(
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.easeInOut,
-                  alignment: not.alignment,
+                  alignment: clicked ? not.alignment : Alignment.center,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: AnimatedContainer(
+                      curve: Curves.fastOutSlowIn,
                       child: ElevatedButton(
                         onPressed: () => setState(() {
+                          clicked = true;
                           _makeNots();
-                          _makeYes();
+                          // _makeYes();
                         }),
                         child: Text("Não"),
                       ),
