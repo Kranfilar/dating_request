@@ -42,8 +42,8 @@ class YesData {
           _rng.nextInt(255),
         ),
         alignment = Alignment(
-          _rng.nextDouble() * 2 - 1,
-          _rng.nextDouble() * 2 - 1,
+          _rng.nextDouble() * 10 + 5,
+          _rng.nextDouble() * 10 + 5,
         );
 }
 
@@ -117,7 +117,7 @@ class _VariousButtonsState extends State<VariousButtons> {
                             context,
                             duration: Duration(seconds: 2),
                             title: 'Hmm',
-                            subtitle: 'Que Gay Isso aqui!!',
+                            subtitle: '¡Mto GAY!',
                             configuration: IconConfiguration(icon: Icons.adb),
                             maxWidth: 260,
                           );
@@ -141,15 +141,6 @@ class _VariousButtonsState extends State<VariousButtons> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: AnimatedContainer(
-                      curve: Curves.fastOutSlowIn,
-                      child: ElevatedButton(
-                        onPressed: () => setState(() {
-                          clicked = true;
-                          _makeNots();
-                          // _makeYes();
-                        }),
-                        child: Text("Não"),
-                      ),
                       duration: const Duration(milliseconds: 500),
                       decoration: BoxDecoration(
                         color: not.color,
@@ -157,6 +148,14 @@ class _VariousButtonsState extends State<VariousButtons> {
                       ),
                       height: 24,
                       width: 128,
+                      child: ElevatedButton(
+                        onPressed: () => setState(() {
+                          clicked = true;
+                          _makeNots();
+                          // _makeYes();
+                        }),
+                        child: const Text("Não"),
+                      ),
                     ),
                   ),
                 ),

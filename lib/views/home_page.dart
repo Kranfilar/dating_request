@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                       context,
                       duration: const Duration(seconds: 2),
                       title: 'BOA!!',
-                      subtitle: 'Chegamos a um resultado melhor',
+                      subtitle: 'Então ta na paz',
                       configuration: const IconConfiguration(icon: Icons.done),
                       maxWidth: 260,
                     );
